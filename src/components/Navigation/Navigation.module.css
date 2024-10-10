@@ -3,13 +3,14 @@
   display: flex;
   height: 110px;
   align-items: center;
-  justify-content: space-between; 
-  position: relative; 
+  justify-content: space-between;
+  position: relative;
 }
+
 .logo {
   position: absolute;
-  top: 20px; 
-  right: 50px; 
+  top: 20px;
+  right: 50px;
 }
 
 .navigation ul {
@@ -19,4 +20,68 @@
   font-weight: 500;
   height: 50px;
   margin-left: auto;
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+  .navigation {
+    padding: 15px 20px;
+    height: 80px; /* Reduce the height for smaller screens */
+  }
+
+  .logo {
+    position: static; /* Reset position on mobile for better layout */
+    margin-right: auto; /* Align logo to the left */
+  }
+
+  .navigation ul {
+    gap: 15px; /* Reduce gap between menu items */
+  }
+}
+
+@media (max-width: 480px) {
+  .navigation {
+    padding: 10px 15px;
+    height: auto; /* Remove fixed height for very small screens */
+  }
+
+  .logo {
+    top: 10px;
+    right: 15px; /* Adjust logo position for very small screens */
+  }
+
+  .navigation ul {
+    display: none; /* Hide the navigation items on small screens */
+  }
+
+  /* Optionally add a hamburger menu for mobile */
+  .hamburger {
+    display: block; /* Display the hamburger menu */
+    cursor: pointer;
+  }
+
+  .navigation ul.active {
+    display: flex; /* Show the menu when hamburger is clicked */
+    flex-direction: column; /* Stack menu items vertically */
+    position: absolute;
+    top: 60px;
+    right: 15px;
+    background-color: white;
+    width: 200px;
+    padding: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    gap: 20px;
+  }
+}
+
+/* Hamburger Menu Styling */
+.hamburger {
+  display: none; /* Hidden by default */
+}
+
+.hamburger div {
+  width: 25px;
+  height: 3px;
+  background-color: black;
+  margin: 5px 0;
 }
