@@ -3,36 +3,45 @@
   max-width: 1000px;
   margin: 0 auto;
   margin-top: 40px;
-  align-items: end;
+  align-items: flex-end; /* Changed from 'end' for better readability */
+  padding: 0 15px; /* Add padding for better appearance on smaller screens */
 }
+
 .top_btn {
   display: flex;
   gap: 32px;
 }
 
+/* Make the gap and layout adjust for smaller screens */
 .contact_form {
   display: flex;
   flex-direction: column;
   gap: 24px;
 }
+
 .contact_form form {
   display: flex;
   gap: 20px;
   padding-bottom: 20px;
   flex-direction: column;
 }
+
 .form_control {
   display: flex;
   flex-direction: column;
   width: 100%;
   position: relative;
 }
+
 .form_control input {
   height: 40px;
   padding: 0 8px;
+  width: 100%; /* Ensure inputs take full width */
 }
+
 .form_control textarea {
   padding: 8px;
+  width: 100%; /* Ensure textarea takes full width */
 }
 
 .form_control label {
@@ -42,4 +51,53 @@
   left: 10px;
   background-color: white;
   padding: 0 10px;
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column; /* Stack content vertically */
+    align-items: center;
+    padding: 0 10px;
+  }
+
+  .top_btn {
+    flex-direction: column; /* Stack buttons vertically */
+    gap: 16px; /* Smaller gap on mobile */
+    width: 100%; /* Make buttons take full width */
+  }
+
+  .contact_form form {
+    gap: 16px; /* Reduce gap between form fields */
+    padding-bottom: 16px;
+  }
+
+  .form_control {
+    width: 100%; /* Ensure form controls take full width */
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    margin-top: 20px; /* Reduce margin for small screens */
+    padding: 0 5px;
+  }
+
+  .top_btn {
+    gap: 12px; /* Further reduce gap between buttons */
+  }
+
+  .form_control input {
+    height: 36px; /* Slightly smaller inputs for mobile */
+    padding: 0 6px;
+  }
+
+  .form_control textarea {
+    padding: 6px;
+  }
+
+  .form_control label {
+    font-size: 12px; /* Slightly smaller labels */
+    top: -10px;
+  }
 }
