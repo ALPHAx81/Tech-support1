@@ -10,7 +10,13 @@
   font-size: 16px;
   justify-content: center;
   cursor: pointer;
+  transition: background-color 0.3s ease; /* Add hover effect */
 }
+
+.primary_btn:hover {
+  background-color: #333; /* Darker shade on hover */
+}
+
 .outline_btn {
   padding: 18px 10px;
   border: 1px solid black;
@@ -25,4 +31,27 @@
   background-color: white;
   width: 100%;
   cursor: pointer;
+  transition: background-color 0.3s ease, border-color 0.3s ease; /* Add hover effect */
+}
+
+.outline_btn:hover {
+  background-color: #f7f7f7; /* Slight background change on hover */
+  border-color: #333; /* Darker border on hover */
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+  .primary_btn, .outline_btn {
+    padding: 16px 8px; /* Reduce padding for smaller screens */
+    font-size: 14px; /* Adjust font size */
+    min-width: 180px; /* Reduce minimum width */
+  }
+}
+
+@media (max-width: 480px) {
+  .primary_btn, .outline_btn {
+    padding: 14px 6px; /* Further reduce padding for mobile */
+    font-size: 12px; /* Smaller font for mobile */
+    min-width: 150px; /* Further reduce min width */
+  }
 }
