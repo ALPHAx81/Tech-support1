@@ -3,16 +3,18 @@
   max-width: 1000px;
   margin: 0 auto;
   margin-top: 40px;
-  align-items: flex-end; /* Changed from 'end' for better readability */
-  padding: 0 15px; /* Add padding for better appearance on smaller screens */
+  align-items: flex-end;
+  padding: 0 15px; /* Ensures good padding on all screens */
+  flex-wrap: wrap; /* Allows wrapping on smaller screens */
 }
 
 .top_btn {
   display: flex;
   gap: 32px;
+  flex-wrap: wrap; /* Allows the buttons to wrap on smaller screens */
 }
 
-/* Make the gap and layout adjust for smaller screens */
+/* Contact Form Layout */
 .contact_form {
   display: flex;
   flex-direction: column;
@@ -21,9 +23,9 @@
 
 .contact_form form {
   display: flex;
+  flex-direction: column; /* Stack form elements */
   gap: 20px;
   padding-bottom: 20px;
-  flex-direction: column;
 }
 
 .form_control {
@@ -36,12 +38,12 @@
 .form_control input {
   height: 40px;
   padding: 0 8px;
-  width: 100%; /* Ensure inputs take full width */
+  width: 100%; /* Full width on all screens */
 }
 
 .form_control textarea {
   padding: 8px;
-  width: 100%; /* Ensure textarea takes full width */
+  width: 100%; /* Full width on all screens */
 }
 
 .form_control label {
@@ -56,48 +58,65 @@
 /* Media Queries for Responsiveness */
 @media (max-width: 768px) {
   .container {
-    flex-direction: column; /* Stack content vertically */
+    flex-direction: column; /* Stack content vertically on smaller screens */
     align-items: center;
     padding: 0 10px;
   }
 
   .top_btn {
     flex-direction: column; /* Stack buttons vertically */
-    gap: 16px; /* Smaller gap on mobile */
-    width: 100%; /* Make buttons take full width */
+    gap: 16px;
+    width: 100%; /* Full width buttons */
   }
 
   .contact_form form {
-    gap: 16px; /* Reduce gap between form fields */
+    gap: 16px; /* Reduce gap for smaller screens */
     padding-bottom: 16px;
   }
 
-  .form_control {
-    width: 100%; /* Ensure form controls take full width */
-  }
-}
-
-@media (max-width: 480px) {
-  .container {
-    margin-top: 20px; /* Reduce margin for small screens */
-    padding: 0 5px;
-  }
-
-  .top_btn {
-    gap: 12px; /* Further reduce gap between buttons */
-  }
-
   .form_control input {
-    height: 36px; /* Slightly smaller inputs for mobile */
-    padding: 0 6px;
+    height: 36px; /* Reduce input height for smaller devices */
   }
 
   .form_control textarea {
-    padding: 6px;
+    padding: 6px; /* Adjust padding for smaller screens */
   }
 
   .form_control label {
     font-size: 12px; /* Slightly smaller labels */
     top: -10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    margin-top: 20px; /* Reduce top margin on smaller screens */
+    padding: 0 5px; /* Narrow padding */
+    flex-direction: column; /* Stack elements vertically */
+  }
+
+  .top_btn {
+    gap: 12px; /* Reduce gap further for mobile */
+    width: 100%; /* Full width buttons */
+    flex-direction: column; /* Stack buttons vertically */
+  }
+
+  .contact_form form {
+    gap: 14px; /* Reduce gap between fields for very small screens */
+  }
+
+  .form_control input {
+    height: 34px; /* Further reduce input height */
+    padding: 0 6px; /* Narrow padding */
+  }
+
+  .form_control textarea {
+    padding: 6px;
+    height: 100px; /* Fixed height for better usability */
+  }
+
+  .form_control label {
+    font-size: 11px; /* Smaller labels for mobile */
+    top: -8px;
   }
 }
