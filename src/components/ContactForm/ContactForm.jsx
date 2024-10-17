@@ -18,15 +18,23 @@ const ContactForm = () => {
     setText(event.target[2].value);
   };
 
- 
-  const handleSupportChat = () => {
-    const mailtoLink = `mailto:regarachit008@gmail.com?subject=Support%20Request%20from%20${encodeURIComponent(name)}&body=${encodeURIComponent(text)}`;
-    window.location.href = mailtoLink;
+  const handleWhatsApp = () => {
+    const phoneNumber = "+91 7017460876";
+    const whatsappLink = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(
+      text
+    )}`;
+    window.location.href = whatsappLink;
   };
 
-  // Function to handle phone call link
   const handlePhoneCall = () => {
     window.location.href = "tel:+7017460876";
+  };
+
+  const handleEmailForm = () => {
+    const mailtoLink = `mailto:${encodeURIComponent(regarachit008@gmail.com)}?subject=Support%20Request%20from%20${encodeURIComponent(
+      name
+    )}&body=${encodeURIComponent(text)}`;
+    window.location.href = mailtoLink;
   };
 
   return (
@@ -34,20 +42,22 @@ const ContactForm = () => {
       <div className={styles.contact_form}>
         <div className={styles.top_btn}>
           <Button
-            text="VIA SUPPORT CHAT"
+            text="TEXT ME ON WHATSAPP"
             icon={<MdMessage fontSize="24px" />}
-            onClick={handleSupportChat} 
+            onClick={handleWhatsApp} 
           />
           <Button
             text="VIA CALL"
             icon={<FaPhoneAlt fontSize="24px" />}
-            onClick={handlePhoneCall} 
+            onClick={handlePhoneCall}
           />
         </div>
+        {/* Updated Button to open mailto link */}
         <Button
           isOutline={true}
           text="VIA EMAIL FORM"
           icon={<HiMail fontSize="24px" />}
+          onClick={handleEmailForm} 
         />
 
         <form onSubmit={onSubmit}>
